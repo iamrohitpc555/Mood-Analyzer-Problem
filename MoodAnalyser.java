@@ -2,7 +2,7 @@ package com.blz.moodanalyser;
 
 public class MoodAnalyser
 {
-	static String message;
+	String message;
 	
 	public MoodAnalyser() {
 	}
@@ -10,24 +10,16 @@ public class MoodAnalyser
 	public MoodAnalyser(String message)
 	{
 		super();
-		MoodAnalyser.message = message;
+		this.message = message;
 	}
 
-	public static String analyseMood() throws MoodAnalysisException
+	public String analyseMood()
 	{
-		try
-		{
-			if(message.contains("Sad"))
-				return "SAD";
-		}
-		catch (NullPointerException e)
-		{
-			if (message == null)
-				throw new MoodAnalysisException("Invalid mood. Enter a message");
-			else if(message == "")
-				throw new MoodAnalysisException("This is an empty message. Enter other message");
-		}
-		return "HAPPY";
+		if(message.contains("Sad"))
+			return "SAD";
+		else
+			return "HAPPY";
 	}
+	
 	
 }
